@@ -1,0 +1,4 @@
+LIBRARY CreateNewDLL
+EXPORTS
+    Factorial
+    CalculateDifference
