@@ -1,0 +1,64 @@
+﻿<Window x:Class="test1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test1"
+        mc:Ignorable="d"
+        Title="温度事件处理器" Height="450" Width="547">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!-- 事件显示区域 -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0">
+            <Image Name="eventImage" Width="300" Height="150" Stretch="UniformToFill" Margin="20"/>
+            <TextBlock Name="eventText" Text="事件消息显示" Margin="20" FontSize="16" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- 组合“已绑定的事件”和“温度显示”的容器 -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0">
+            <!-- 已绑定的事件显示区域 -->
+            <StackPanel Margin="0,0,0,50">         <!-- 添加了下边距 -->
+                <TextBlock Text="已绑定的事件" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <ListBox Name="boundEventsListBox" Height="80" Padding="0" BorderThickness="5" FontSize="15"/>
+            </StackPanel>
+
+            <!-- 温度显示区域 -->
+            <StackPanel>
+                <TextBlock Text="当前温度" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Name="temperatureText" Text="25°C" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- 按钮区域 -->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="bindAddClothesBtn" Content="绑定‘加衣服’" Width="150" Height="40" Margin="10" Click="bindAddClothesBtn_Click"/>
+            <Button Name="unbindAddClothesBtn" Content="解绑‘加衣服’" Width="150" Height="40" Margin="10" Click="unbindAddClothesBtn_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="bindRemoveClothesBtn" Content="绑定‘脱衣服’" Width="150" Height="40" Margin="10" Click="bindRemoveClothesBtn_Click"/>
+            <Button Name="unbindRemoveClothesBtn" Content="解绑‘脱衣服’" Width="150" Height="40" Margin="10" Click="unbindRemoveClothesBtn_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Name="triggerEventBtn" Content="触发事件" Width="200" Height="40" Margin="10" Click="triggerEventBtn_Click"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
